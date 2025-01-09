@@ -31,7 +31,7 @@ class TransferServiceImpl : TransferService {
         var rem = dp[N][maxWeight]
         val optimalTransfers = mutableListOf<Transfer>()
         var usedWeight = 0
-        for (i in N..1) {
+        for (i in N downTo 1) {
             if (rem <= 0) {
                 break
             }
