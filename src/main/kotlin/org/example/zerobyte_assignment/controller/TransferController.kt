@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 class TransferController(private val transferService : TransferService) {
 
     @PostMapping("/process")
-    fun processRequest(@RequestBody requestBody: TransferRequest): ResponseEntity<OptimalTransfer> {
+    fun processRequest(@RequestBody requestBody: TransferRequest): ResponseEntity<TransferResponse> {
         val response = transferService.processTransfer(requestBody);
         return ResponseEntity(response, HttpStatus.OK)
     }

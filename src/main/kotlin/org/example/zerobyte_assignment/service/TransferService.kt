@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service
 
 @Service
 interface TransferService {
-    fun processTransfer(requestBody: TransferRequest): OptimalTransfer
+    fun processTransfer(requestBody: TransferRequest): TransferResponse
 }

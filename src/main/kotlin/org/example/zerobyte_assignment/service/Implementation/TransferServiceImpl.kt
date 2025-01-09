@@ -10,7 +10,7 @@ class TransferServiceImpl : TransferService {
     // which is a very well known problem in computer science
     // most optimal solution involves dynamic programming
     // the time complexity of the solution is O(N*maxWeight)
-    private fun solveKnapsack(requestBody: TransferRequest) : OptimalTransfer {
+    private fun solveKnapsack(requestBody: TransferRequest) : TransferResponse {
         val maxWeight:Int = requestBody.maxWeight
         val N:Int = requestBody.availableTransfers.size
         val dp = Array(N + 1) { IntArray(maxWeight + 1) }
@@ -43,11 +43,11 @@ class TransferServiceImpl : TransferService {
             remWeight -= requestBody.availableTransfers[i - 1].weight
             usedWeight += requestBody.availableTransfers[i - 1].weight
         }
-        return OptimalTransfer(optimalTransfers, dp[N][maxWeight], usedWeight)
+        return TransferResponse(optimalTransfers, dp[N][maxWeight], usedWeight)
     }
 
     //process
-    override fun processTransfer(requestBody: TransferRequest): OptimalTransfer {
+    override fun processTransfer(requestBody: TransferRequest): TransferResponse {
         return solveKnapsack(requestBody);
     }
 }
