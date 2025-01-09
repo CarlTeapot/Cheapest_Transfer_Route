@@ -46,7 +46,7 @@ class TransferServiceImpl : TransferService {
         return OptimalTransfer(optimalTransfers, dp[N][maxWeight], usedWeight)
     }
 
-
+    //process
     override fun processTransfer(requestBody: TransferRequest): OptimalTransfer {
         return solveKnapsack(requestBody);
     }
