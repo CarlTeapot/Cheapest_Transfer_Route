@@ -66,8 +66,8 @@ The software has two features
 
 I have implemented OpenApi swagger, so after running the program, vist the following url address:
 
-      http://localhost:8080/swagger-ui/index.html#/ address. 
-
+      http://localhost:8080/swagger-ui/index.html#/ 
+      
 if you want to use postman or some other software, here are the addresses:
             
             1) http://localhost:8080/transfer/process
