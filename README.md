@@ -64,38 +64,14 @@ The software has two features
 1) you can send a json bady containing the maxWeight and list of transfers, and the program will return the optimal route to you
 2) you can send a request to the program to generate a random list of trasfers and maxWeight and then it will find the optimal route in the list
 
-Both are POST requests
+I have implemented OpenApi swagger, so after running the program, vist the following url address:
 
-You need to use Postman or a similar software for the first option. Here is an example of a valid json body that the code accepts:
+      http://localhost:8080/swagger-ui/index.html#/ address. 
 
-{
-  "maxWeight": 50
-,
-  "availableTransfers":
-  [
-    {
-      "weight":
-      10
-    ,
-      "cost": 60
-    },{
-    "weight": 20
-  ,
-    "cost": 100
-  },{
-    "weight":
-    30
-  ,
-    "cost":
-    120
-  }
-  ]
-
-}
-
-url addresses:
-1) http://localhost:8080/transfer/process
-2) http://localhost:8080/transfer/processRandom
+if you want to use postman or some other software, here are the addresses:
+            
+            1) http://localhost:8080/transfer/process
+            2) http://localhost:8080/transfer/processRandom
 
 if you are running the jar file on ubuntu virtual machine, then the url address would be http://{ubuntu ip address}:8080/transfer/processRandom
 
