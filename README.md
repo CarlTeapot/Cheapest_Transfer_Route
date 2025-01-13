@@ -97,4 +97,12 @@ url addresses:
 1) http://localhost:8080/transfer/process
 2) http://localhost:8080/transfer/processRandom
 
+if you are running the jar file on ubuntu virtual machine, then the url address would be http://{ubuntu ip address}:8080/transfer/processRandom
+
+you can find the ubuntu ip address by typing this command in the ubuntu terminal:
+
+   ip addr show
+
+   
+
    
