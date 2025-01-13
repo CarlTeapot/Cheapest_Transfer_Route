@@ -63,7 +63,7 @@ class TransferControllerIntegrationTest {
     @Test
     fun `test processRandomRequest returns valid data`() {
         mockMvc.perform(
-            MockMvcRequestBuilders.post("/transfer/processRandom")
+            MockMvcRequestBuilders.get("/transfer/processRandom")
                 .contentType(MediaType.APPLICATION_JSON)
         )
             .andExpect(MockMvcResultMatchers.status().isOk)
