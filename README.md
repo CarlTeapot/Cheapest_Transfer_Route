@@ -101,7 +101,7 @@ if you are running the jar file on ubuntu virtual machine, then the url address 
 
 you can find the ubuntu ip address by typing this command in the ubuntu terminal:
 
-   ip addr show
+      ip addr show
 
    
 
