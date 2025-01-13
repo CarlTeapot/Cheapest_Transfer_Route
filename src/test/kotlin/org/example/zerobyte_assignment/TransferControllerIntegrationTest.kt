@@ -10,6 +10,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import com.fasterxml.jackson.databind.ObjectMapper
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -57,4 +60,20 @@ class TransferControllerIntegrationTest {
             .andExpect(MockMvcResultMatchers.jsonPath("$.totalWeight").value(0))
             .andExpect(MockMvcResultMatchers.jsonPath("$.transfers").isEmpty)
     }
+    @Test
+    fun `test processRandomRequest returns valid data`() {
+        mockMvc.perform(
+            MockMvcRequestBuilders.post("/transfer/processRandom")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().isOk)
+            .andExpect(MockMvcResultMatchers.jsonPath("$.request").exists())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.response").exists())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.request.maxWeight").isNumber)
+            .andExpect(MockMvcResultMatchers.jsonPath("$.request.availableTransfers").isArray)
+            .andExpect(MockMvcResultMatchers.jsonPath("$.response.totalCost").isNumber)
+            .andExpect(MockMvcResultMatchers.jsonPath("$.response.totalWeight").isNumber)
+            .andExpect(MockMvcResultMatchers.jsonPath("$.response.transfers").isArray)
+    }
+
 }

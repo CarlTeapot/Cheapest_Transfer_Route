@@ -3,6 +3,7 @@ package org.example.zerobyte_assignment.service.Implementation
 import org.example.zerobyte_assignment.model.*
 import org.example.zerobyte_assignment.service.TransferService
 import org.springframework.stereotype.Service
+import kotlin.random.Random
 
 @Service
 class TransferServiceImpl : TransferService {
@@ -48,6 +49,17 @@ class TransferServiceImpl : TransferService {
 
     //process
     override fun processTransfer(requestBody: TransferRequest): TransferResponse {
-        return solveKnapsack(requestBody);
+        return solveKnapsack(requestBody)
+    }
+    override fun processRandomTransfer() : FullTransferResponse {
+        val maxWeight = Random.nextInt(0,5000)
+        val n = Random.nextInt(0,1500)
+        val transfers = mutableListOf<Transfer>()
+        for (i in 0..n) {
+            transfers.add(Transfer(Random.nextInt(0,5000), Random.nextInt(0,1000)))
+        }
+        val request = TransferRequest(maxWeight, transfers)
+        val response = processTransfer(request)
+        return FullTransferResponse(request, response)
     }
 }

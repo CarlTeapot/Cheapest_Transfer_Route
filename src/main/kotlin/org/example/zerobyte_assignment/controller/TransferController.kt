@@ -14,5 +14,10 @@ class TransferController(private val transferService : TransferService) {
         val response = transferService.processTransfer(requestBody);
         return ResponseEntity(response, HttpStatus.OK)
     }
+    @PostMapping("/processRandom")
+    fun processRandomRequest(): ResponseEntity<FullTransferResponse> {
+        val response = transferService.processRandomTransfer();
+        return ResponseEntity(response, HttpStatus.OK)
+    }
 }
 

@@ -39,4 +39,25 @@ class TransferServiceImplTest {
         assertEquals(0, result.totalWeight)
         assertTrue(result.transfers.isEmpty())
     }
+    @Test
+    fun `test processRandomTransfer generates valid response`() {
+        // Act
+        val response = transferService.processRandomTransfer()
+
+        // Assert
+        assertNotNull(response)
+        assertNotNull(response.request)
+        assertNotNull(response.response)
+
+        // Verify that maxWeight and availableTransfers are within expected ranges
+        assertTrue(response.request.maxWeight in 0..5000)
+        assertTrue(response.request.availableTransfers.size in 0..1500)
+        response.request.availableTransfers.forEach { transfer ->
+            assertTrue(transfer.weight in 0..5000)
+            assertTrue(transfer.cost in 0..1000)
+        }
+
+        // Verify that the response is consistent with the request
+        assertTrue(response.response.totalWeight <= response.request.maxWeight)
+    }
 }
