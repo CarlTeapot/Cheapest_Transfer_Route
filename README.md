@@ -6,12 +6,12 @@ Hello. This is a small server-side project that solves the following problem: gi
 Windows:
     Download JDK 21 from this link and run the .exe file https://www.oracle.com/java/technologies/downloads/?er=221886#jdk21-windows
 Linux: 
-   run this command in the terminal:
+   run the following command in the terminal:
    
    sudo apt update
    sudo apt install -y openjdk-21-jdk
 
-2) build the application
+2) build and run the application
 
 Windows:
   run this command, replace {project directory} with the actual location
@@ -20,10 +20,16 @@ Windows:
     cd build/libs
     java -jar Zerobyte_Assignment-0.0.1-SNAPSHOT.jar
 
+
 if the .jar file has a different name, run the dir command to get the contents of the folder and replace the file name in the command
 
-Ubuntu: 
-  
+Linux: 
+    cd {project directory}
+    chmod +x ./gradlew
+    ./gradlew build
+    cd build/libs
+    java -jar Zerobyte_Assignment-0.0.1-SNAPSHOT.jar
+    
 
 
    
