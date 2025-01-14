@@ -1,7 +1,6 @@
 package org.example.zerobyte_assignment.model
 
-import org.springframework.stereotype.Component
-
+//DTO for the request body of the transfer request
 data class TransferRequest(
     val maxWeight: Int,
     val availableTransfers: List<Transfer>

@@ -7,9 +7,9 @@ import kotlin.random.Random
 
 @Service
 class TransferServiceImpl : TransferService {
-    //the problem in the statement is equivalent to a knapsack problem
+    //the problem in the statement is equivalent to a 0-1 variation of the knapsack problem
     // which is a very well known problem in computer science
-    // most optimal solution involves dynamic programming
+    // optimal solution involves dynamic programming
     // the time complexity of the solution is O(N*maxWeight)
     private fun solveKnapsack(requestBody: TransferRequest) : TransferResponse {
         val maxWeight:Int = requestBody.maxWeight
