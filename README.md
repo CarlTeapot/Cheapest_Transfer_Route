@@ -79,6 +79,34 @@ you can find the ubuntu ip address by typing this command in the ubuntu terminal
 
       ip addr show
 
-   
+here is the example of proper json body request to send to http://localhost:8080/transfer/process address:
+
+POST http://localhost:8080/transfer/process
+Content-Type: application/json
+
+{
+  "maxWeight": 50
+,
+  "availableTransfers":
+  [
+    {
+      "weight":
+      10
+    ,
+      "cost": 60
+    },{
+    "weight": 20
+  ,
+    "cost": 100
+  },{
+    "weight":
+    30
+  ,
+    "cost":
+    120
+  }
+  ]
+
+}
 
    
