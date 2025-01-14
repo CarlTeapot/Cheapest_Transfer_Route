@@ -62,9 +62,9 @@ Linux:
     
 The software has two features 
 1) you can send a json bady containing the maxWeight and list of transfers, and the program will return the optimal route to you
-2) you can send a request to the program to generate a random list of trasfers and maxWeight and then it will find the optimal route in the list
+2) you can send a request to the program to generate a random list of transfers and maxWeight and then it will find the optimal route in the list
 
-I have implemented OpenApi swagger, so after running the program, vist the following url address:
+I have implemented OpenApi Swagger, so after running the program, visit the following url address:
 
       http://localhost:8080/swagger-ui/index.html#/ 
       
